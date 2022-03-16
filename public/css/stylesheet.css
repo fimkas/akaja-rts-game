@@ -1,0 +1,171 @@
+@charset "UTF-8";
+
+:root{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+
+    --background-color: #1b1b1b;
+    --main-background-color: rgba(41, 41, 41, 0.7);
+    --main-color: #e6e6f5;
+    --main-border-color: #292929;
+}
+
+body{
+    width: 2500px;
+
+    margin: 0;
+    padding: 0;
+    color: var(--main-color);
+    background: var(--background-color);
+
+    overflow: hidden;
+}
+
+/* scrollbar
+------------- */
+body::-webkit-scrollbar{
+    width: 0.75rem;
+}
+
+body::-webkit-scrollbar-track{
+    background: #292929;
+}
+
+body::-webkit-scrollbar-thumb{
+    background: #5269af;
+}
+
+/* all
+------------- */
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6{
+    margin: 0;
+}
+
+ul li{
+    list-style: none;
+    padding-left: 0;
+}
+
+ul{
+    padding: 0;
+    margin: 0;
+}
+/*-----------------*/
+header{
+    background-color: var(--main-background-color);
+    border-radius: 10px;
+    margin: 10px 0 0 10px;
+    position: fixed;
+    z-index: 100000;
+}
+
+header a{
+    color: var(--main-color);
+    text-decoration: none;
+}
+/*-----------------*/
+
+.cells{
+}
+
+.cell{
+    background-image: url(../img/grass.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    font-size: 17px;
+    display: inline-block;
+    height: 70px;
+    width: 70px;
+    background-color: #379417;
+    border-bottom: solid rgba(88, 88, 88, 0.5) 1px;
+    border-right: solid rgba(88, 88, 88, 0.5) 1px;
+    transition: 0.1s;
+    color: rgba(255, 255, 255, 0)
+}
+
+.cell:hover{
+    opacity: 0.9;
+}
+
+.hills0{
+    background-image: url(../img/hills1.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.hills1{
+    background-image: url(../img/hills2.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.hills2{
+    background-image: url(../img/hills3.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.gold_ore{
+    background-image: url(../img/gold_hills1.jpg);
+    color: var(--main-color);
+}
+
+.town_hall{
+    background-image: url(../img/town_hall.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.town_hall:hover{
+    color: var(--main-color);
+
+}
+
+.farm{
+    background-image: url(../img/farm.jpg)
+}
+
+.mine0{
+    background-image: url(../img/mine_hils3.jpg)
+}
+.mine1{
+    background-image: url(../img/mine_hils3.jpg)
+}
+.mine2{
+    background-image: url(../img/mine_hils3.jpg)
+}
+
+.control_panel{
+    padding: 10px 10px;
+    width: 100%;
+    margin-top: 800px;
+    position: fixed;
+
+    background-color: rgba(67, 60, 60, 0.7);
+    z-index: 100000;
+}
+
+.resource{
+    font-size: 18px;
+    padding: 0 10px;
+    display: inline-block;
+}
+
+.people{
+    margin-left: 900px;
+}
+
+.build_menu-btn{
+    font-size: 15px;
+    border-radius: 6px;
+    border: none;
+    padding: 15px 30px;
+    transition: 0.2s;
+}
+.build_menu-btn:hover{
+    background-color: #838383;
+}
