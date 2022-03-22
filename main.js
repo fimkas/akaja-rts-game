@@ -134,7 +134,7 @@ for (let i = 1; i <= system.cell_lend; i++) { //создание плиток
     document.querySelector('#cells').append(div)
 }
 
-for (let i = 1; i <= system.hills; i++) { // создание гор в рандомном месте
+for (let i = 1; i <= system.hills + Math.floor(Math.random() * 3); i++) { // создание гор в рандомном месте
     const random = Math.floor(Math.random() * system.cell_lend)
     let rand_hills = Math.floor(Math.random() * 3)
     document.getElementById(random).classList.add('hills' + rand_hills);
@@ -143,7 +143,7 @@ for (let i = 1; i <= system.hills; i++) { // создание гор в ранд
     document.getElementById(random).innerHTML = "hills"
 }
 
-for (let i = 1; i <= system.gold_ore; i++) { // создание золотых жыл в рандомном месте
+for (let i = 1; i <= system.gold_ore + Math.floor(Math.random() * 3); i++) { // создание золотых жыл в рандомном месте
     let random = Math.floor(Math.random() * system.cell_lend)
     document.getElementById(random).innerHTML = "gold_ore"
     document.getElementById(random).classList.add('gold_ore');
