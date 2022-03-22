@@ -49,18 +49,18 @@ const resource = {
 
 //перемещение
 document.addEventListener('keydown', (event) => {
-    const keyName = event.key;
+    const keyName = event.code;
 
-    if (keyName === 'w') {
+    if (keyName === 'KeyW') {
         window.scrollBy(0, -15)
     }
-    if (keyName === 's') {
+    if (keyName === 'KeyS') {
         window.scrollBy(0, 15)
     }
-    if (keyName === 'a') {
+    if (keyName === 'KeyA') {
         window.scrollBy(-15, 0)
     }
-    if (keyName === 'd') {
+    if (keyName === 'KeyD') {
         window.scrollBy(15, 0)
     }
 
@@ -172,6 +172,9 @@ document.querySelector('#house__menu-button').onclick = function () {
 
 //кнопка хода
 document.querySelector('#turn__menu-button').onclick = function () {
+    if (system.town_hall === 0){
+        alert("установите ратушу")
+    }
     if (system.town_hall !== 0){
         //вывод ресурсов на панель:
         gold_f()

@@ -60,7 +60,8 @@ ul{
 header{
     background-color: var(--main-background-color);
     border-radius: 10px;
-    margin: 10px 0 0 10px;
+    margin: 0 0 0 10px;
+    top: 1px;
     position: fixed;
     z-index: 100000;
 }
@@ -72,19 +73,19 @@ header a{
 /*-----------------*/
 
 .cells{
+    margin: 60px 0 60px 60px;
 }
 
 .cell{
     background-image: url(../img/grass.jpg);
     background-repeat: no-repeat;
     background-position: center;
-    font-size: 17px;
     display: inline-block;
-    height: 70px;
-    width: 70px;
+    height: 68px;
+    width: 68px;
     background-color: #379417;
-    border-bottom: solid rgba(88, 88, 88, 0.5) 1px;
-    border-right: solid rgba(88, 88, 88, 0.5) 1px;
+    /*border-bottom: solid rgba(88, 88, 88, 0.5) 1px;*/
+    /*border-right: solid rgba(88, 88, 88, 0.5) 1px;*/
     transition: 0.1s;
     color: rgba(255, 255, 255, 0)
 }
@@ -142,8 +143,8 @@ header a{
 .control_panel{
     padding: 10px 10px;
     width: 100%;
-    margin-top: 800px;
     position: fixed;
+    bottom: 1px;
 
     background-color: rgba(67, 60, 60, 0.7);
     z-index: 100000;
