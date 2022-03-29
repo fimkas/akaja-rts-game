@@ -15,37 +15,8 @@ const system = { //константы на которих живет все пр
     town_hall: 0,
 }
 
-const resource = {
-    people_limit: 0,
-    people_use: 0,
-
-    gold_mine: 0,
-    gold_mine_production: 0,
-    tax: 0,
-    gold: 100,
-    gold_production: 0,
-    gold_profit: 0,
-    gold_use: 0,
-
-    farm: 0,
-    farm_production: 0,
-    food: 100,
-    farm_profit: 0,
-    food_use: 2,
-
-    sawmill: 0,
-    sawmill_production: 0,
-    wood: 100,
-    wood_profit: 0,
-    wood_use: 0,
-
-    //переменные связанные с камнем
-    stone_mine: 0,
-    stone_mine_production: 0,
-    stone: 100,
-    stone_profit: 0,
-    stone_use: 0
-}
+//импорт класса всех ресурсов
+import {resource} from "./resurse/resourse.js"
 
 //перемещение
 document.addEventListener('keydown', (event) => {
@@ -115,22 +86,26 @@ function stone_f() {
 
 function resource_update() {
     //вызов функций ресурсов
-    gold_f(); food_f(); wood_f(); stone_f()
-    //золото
-    document.querySelector('#resource_gold').innerHTML =
-        "gold: " + resource.gold + " " + resource.gold_profit
-    //еда
-    document.querySelector('#resource_food').innerHTML =
-        "food: " + resource.food  + " " + resource.farm_profit
-    //дерево
-    document.querySelector('#resource_wood').innerHTML =
-        "wood: " + resource.wood + " " + resource.wood_profit
-    //камень
-    document.querySelector('#resource_stone').innerHTML =
-        "stone: " + resource.stone + " " + resource.stone_profit
-    //люди
-    document.querySelector('#resource_people').innerHTML =
-        "people: " + resource.people_use + "/" + resource.people_limit
+    if (resource.food <= -10){
+        alert("u lost")
+        // system.town_hall = 0
+    }else {
+        //золото
+        document.querySelector('#resource_gold').innerHTML =
+            "gold: " + resource.gold + " " + resource.gold_profit
+        //еда
+        document.querySelector('#resource_food').innerHTML =
+            "food: " + resource.food  + " " + resource.farm_profit
+        //дерево
+        document.querySelector('#resource_wood').innerHTML =
+            "wood: " + resource.wood + " " + resource.wood_profit
+        //камень
+        document.querySelector('#resource_stone').innerHTML =
+            "stone: " + resource.stone + " " + resource.stone_profit
+        //люди
+        document.querySelector('#resource_people').innerHTML =
+            "people: " + resource.people_use + "/" + resource.people_limit
+    }
 }
 
 //генерация мира:
@@ -179,6 +154,7 @@ document.querySelector('#turn__menu-button').onclick = function () {
     }
     if (system.town_hall !== 0){ // в случаее успеха закончить ход
         //вывод ресурсов на панель:
+        gold_f(); food_f(); wood_f(); stone_f()
         resource_update()
 
         // дебаг:
@@ -235,9 +211,9 @@ for (let i = String(1); i <= system.cell_lend; i++) {
         }
 
         if (system.build_it === "mine" &&
+            document.getElementById(i).className === "cell hills0 hills" ||
             document.getElementById(i).className === "cell hills1 hills" ||
-            document.getElementById(i).className === "cell hills2 hills" ||
-            document.getElementById(i).className === "cell hills3 hills" &&
+            document.getElementById(i).className === "cell hills2 hills" &&
             system.town_hall !== 0) {
 
             resource.stone_mine++
