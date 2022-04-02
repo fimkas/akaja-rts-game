@@ -1,7 +1,9 @@
 export const resource = {
+    //люди
     people_limit: 0,
     people_use: 0,
 
+    //золото
     gold_mine: 0,
     gold_mine_production: 0,
     tax: 0,
@@ -10,12 +12,14 @@ export const resource = {
     gold_profit: 0,
     gold_use: 0,
 
+    //еда
     farm: 0,
     farm_production: 0,
     food: 100,
     farm_profit: 0,
     food_use: 2,
 
+    //дерево
     sawmill: 0,
     sawmill_production: 0,
     wood: 100,

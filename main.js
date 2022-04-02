@@ -168,15 +168,19 @@ document.querySelector('#turn__menu-button').onclick = function () {
         }
     }
 }
+
+//подключение зданий
+import {townHall} from "./bilding/bildings.js"
+
 // выполнение функции строительства:
 for (let i = String(1); i <= system.cell_lend; i++) {
     document.getElementById(i).onclick = function (){
 
-        if (system.build_it === "town_hall" && document.getElementById(i).className === "cell" && system.town_hall !== 1) {
-            document.getElementById(i).classList.add('town_hall');
+        if (system.build_it === townHall.Bname && document.getElementById(i).className === "cell" && system.town_hall !== 1) {
+            document.getElementById(i).classList.add(townHall.Bclass);
             document.querySelector('#town-hall__menu-button').style.display = 'none'
             system.town_hall = 1
-            resource.tax++
+            resource.tax += townHall.Btax
             resource.people_limit += 10
 
             resource_update()
