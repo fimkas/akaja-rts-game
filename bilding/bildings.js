@@ -15,13 +15,20 @@
 // }
 
 class Bilds{
-    constructor(Bname, Bclass, ProfitTax, B_useWood, B_useStone, B_useGold, T_useWood, T_useStone, T_useGold, T_useFood) {
+    constructor(
+        Bname, Bclass,
+        ProfitTax, ProfitWood, ProfitGold, ProfitPeopleLimit,
+        B_useWood, B_useStone, B_useGold,
+        T_useWood, T_useStone, T_useGold, T_useFood) {
+
         //имя, класс
         this.Bname = Bname
         this.Bclass = Bclass
         //прибиль
         this.ProfitTax = ProfitTax
         this.ProfitWood = ProfitWood
+        this.ProfitGold = ProfitGold
+        this.ProfitPeopleLimit = ProfitPeopleLimit
         //использование ресурсов для строительства
         this.B_useWood = B_useWood
         this.B_useStone = B_useStone
@@ -41,4 +48,7 @@ class Bilds{
 
 //добавлять здания тут
 
-export let townHall = new Bilds("town_hall", "town_hall", 1, 3, 3, 0)
+export let townHall = new Bilds("town_hall", "town_hall",
+    1, 0, 0, 10,
+    3, 3, 0,
+    0, 0, 0, 2)

@@ -60,8 +60,8 @@ ul{
 header{
     background-color: var(--main-background-color);
     border-radius: 10px;
-    margin: 0 0 0 10px;
     top: 1px;
+    width: 100%;
     position: fixed;
     z-index: 100000;
 }
@@ -70,10 +70,48 @@ header a{
     color: var(--main-color);
     text-decoration: none;
 }
-/*-----------------*/
+/*меню*/
+.menu_background{
+    background-image: url("../img/backgraund.jpg");
+    background-repeat: no-repeat;
+    background-position: 0 -10px;
+}
 
+.menu{
+    max-width: 200px;
+    display: inline-block;
+    position: fixed;
+    top: 20%;
+    left: 5%;
+}
+
+.menu_title{
+    font-family: serif;
+    font-size: 45px;
+    padding: 0 0 0 20px;
+    position: fixed;
+    top: 8%;
+    left: 5%;
+}
+
+.menu-btn{
+    font-size: 15px;
+    border-radius: 6px;
+    border: none;
+    width: 150px;
+    padding: 15px 30px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: 0.1s;
+}
+
+.menu-btn:hover{
+    opacity: 0.8;
+}
+
+/*игра*/
 .cells{
-    margin: 60px 0 60px 60px;
+    margin: 70px 0 70px 70px;
     font-size: 0;
 }
 
@@ -145,7 +183,7 @@ header a{
     padding: 10px 10px;
     width: 100%;
     position: fixed;
-    bottom: 1px;
+    bottom: 0;
 
     background-color: rgba(67, 60, 60, 0.7);
     z-index: 100000;
@@ -158,11 +196,12 @@ header a{
 }
 
 .people{
-    margin-left: 900px;
+    position: fixed;
+    right: 1px;
 }
 
 .build_menu-btn{
-    font-size: 15px;
+    font-size: 16px;
     border-radius: 6px;
     border: none;
     padding: 15px 30px;
@@ -170,4 +209,14 @@ header a{
 }
 .build_menu-btn:hover{
     background-color: #838383;
+}
+
+.turn_menu-btn{
+    font-size: 16px;
+    border-radius: 6px;
+    border: none;
+    padding: 15px 50px;
+    transition: 0.2s;
+    position: fixed;
+    right: 10px;
 }

@@ -38,6 +38,7 @@ document.addEventListener('keydown', (event) => {
 }, false);
 
 // расчет продуктивности:
+//золото
 function gold_f() {
     for (let i = 1; i <= resource.gold_mine; i++) {
         resource.gold_mine_production = i * 3
@@ -51,6 +52,7 @@ function gold_f() {
     //расчет прибыли
     resource.gold_profit = resource.gold_production - resource.gold_use //получаем чистую доходность за ход
 }
+//еда
 function food_f() {
     for (let i = 1; i <= resource.farm; i++) {
         resource.farm_production = i * 3
@@ -61,6 +63,7 @@ function food_f() {
     resource.farm_profit = resource.farm_production - resource.food_use //получаем чистую доходность за ход
 
 }
+//дерево
 function wood_f() {
     //считаем сколь приносит одна лесопилка
     for (let i = 1; i <= resource.sawmill; i++) {
@@ -71,6 +74,7 @@ function wood_f() {
     //расчет прибыли
     resource.wood_profit = resource.sawmill_production - resource.wood_use //получаем чистый доход за один ход
 }
+//камень
 function stone_f() {
     for (let i = 1; i <= resource.stone_mine; i++) {
         resource.stone_mine_production = i * 3
@@ -80,15 +84,16 @@ function stone_f() {
     resource.stone -= resource.stone_use
     resource.stone_profit = resource.stone_mine_production - resource.stone_use
 }
-
+//люди
 // function people_f() {
 // }
 
+//обновление ресурсов
 function resource_update() {
     //вызов функций ресурсов
     if (resource.food <= -10){
         alert("u lost")
-        // system.town_hall = 0
+        system.town_hall = 0
     }else {
         //золото
         document.querySelector('#resource_gold').innerHTML =
@@ -107,6 +112,22 @@ function resource_update() {
             "people: " + resource.people_use + "/" + resource.people_limit
     }
 }
+resource_update()
+
+//генирация кнопк меню
+
+let btn_turn = document.createElement('button') //хода
+btn_turn.className = "turn_menu-btn"
+btn_turn.innerHTML = "turn"
+btn_turn.id = "turn__menu-button"
+document.querySelector('#control_panel').append(btn_turn)
+
+//строительства
+let btn_townHall = document.createElement('button')
+btn_townHall.className = "build_menu-btn"
+btn_townHall.innerHTML = "town hall"
+btn_townHall.id = "town-hall__menu-button"
+document.querySelector('#control_panel').append(btn_townHall)
 
 //генерация мира:
 for (let i = String(1); i <= system.cell_lend; i++) { //создание плиток
@@ -115,7 +136,7 @@ for (let i = String(1); i <= system.cell_lend; i++) { //создание пли�
     div.id = i
     document.querySelector('#cells').append(div)
 }
-
+//генерация гор
 for (let i = 1; i <= system.hills + Math.floor(Math.random() * 3); i++) { // создание гор в рандомном месте
     const random = String(Math.floor(Math.random() * system.cell_lend))
     let rand_hills = Math.floor(Math.random() * 3)
@@ -123,7 +144,7 @@ for (let i = 1; i <= system.hills + Math.floor(Math.random() * 3); i++) { // с�
     document.getElementById(random).classList.add('hills' + rand_hills);
     document.getElementById(random).classList.add('hills');
 }
-
+//генерация золотых гор
 for (let i = 1; i <= system.gold_ore + Math.floor(Math.random() * 3); i++) { // создание золотых жыл в рандомном месте
     let random = String(Math.floor(Math.random() * system.cell_lend))
     //выдача класов
@@ -180,8 +201,8 @@ for (let i = String(1); i <= system.cell_lend; i++) {
             document.getElementById(i).classList.add(townHall.Bclass);
             document.querySelector('#town-hall__menu-button').style.display = 'none'
             system.town_hall = 1
-            resource.tax += townHall.Btax
-            resource.people_limit += 10
+            resource.tax += townHall.ProfitTax
+            resource.people_limit += townHall.ProfitPeopleLimit
 
             resource_update()
             system.build_it = ""
