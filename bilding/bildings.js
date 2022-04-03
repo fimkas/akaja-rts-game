@@ -1,22 +1,8 @@
-// class Bildings{
-//     BildName: "name",
-//     BildClass: "class",
-//     //использование за ход
-//     UseWood_turn: "",
-//     UseFood_turn: "",
-//     UseStone_turn: "",
-//     UseGold_turn: "",
-//     //использование для строительства
-//     UseWood_bild: "",
-//     UseFood_bild: "",
-//     UseStone_bild: "",
-//     UseGold_bild: ""
-//     //функции здания
-// }
+import {system} from "../main.js"
 
 class Bilds{
     constructor(
-        Bname, Bclass,
+        Bname, Bclass, BTNckass, BTNname, BTNid,
         ProfitTax, ProfitWood, ProfitGold, ProfitPeopleLimit,
         B_useWood, B_useStone, B_useGold,
         T_useWood, T_useStone, T_useGold, T_useFood) {
@@ -24,6 +10,9 @@ class Bilds{
         //имя, класс
         this.Bname = Bname
         this.Bclass = Bclass
+        this.BTNckass = BTNckass
+        this.BTNname = BTNname
+        this.BTNid = BTNid
         //прибиль
         this.ProfitTax = ProfitTax
         this.ProfitWood = ProfitWood
@@ -40,15 +29,23 @@ class Bilds{
         this.T_useFood = T_useFood
     }
 
-    allerts() {
-        alert(this.Bname)
-        alert(this.Bclass)
+    bildBtn() {
+        let btn = document.createElement('button')
+        btn.className = this.BTNckass
+        btn.innerHTML = this.BTNname
+        btn.id = this.BTNid
+        document.querySelector('#control_panel').append(btn)
+
+        document.getElementById(this.BTNid).onclick = function () {
+            system.build_it = "town_hall"
+        }
     }
 }
 
 //добавлять здания тут
 
-export let townHall = new Bilds("town_hall", "town_hall",
+export let townHall = new Bilds(
+    "town_hall", "town_hall", "build_menu-btn", "town hall", "town-hall__menu-button",
     1, 0, 0, 10,
     3, 3, 0,
     0, 0, 0, 2)

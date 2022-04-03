@@ -2,7 +2,7 @@
 VERSION: 0.1 BETA
 */
 
-const system = { //константы на которих живет все приложение, ИЗМЕНЕНИЯ НЕ ВНОСИТЬ!!. нормальное название не завезли
+export const system = { //константы на которих живет все приложение, ИЗМЕНЕНИЯ НЕ ВНОСИТЬ!!. нормальное название не завезли
     //важные параметры:
     debag: false,
     build_it: "",
@@ -123,11 +123,8 @@ btn_turn.id = "turn__menu-button"
 document.querySelector('#control_panel').append(btn_turn)
 
 //строительства
-let btn_townHall = document.createElement('button')
-btn_townHall.className = "build_menu-btn"
-btn_townHall.innerHTML = "town hall"
-btn_townHall.id = "town-hall__menu-button"
-document.querySelector('#control_panel').append(btn_townHall)
+
+
 
 //генерация мира:
 for (let i = String(1); i <= system.cell_lend; i++) { //создание плиток
@@ -149,23 +146,6 @@ for (let i = 1; i <= system.gold_ore + Math.floor(Math.random() * 3); i++) { // 
     let random = String(Math.floor(Math.random() * system.cell_lend))
     //выдача класов
     document.getElementById(random).classList.add('gold_ore');
-}
-
-// обработка нажатия на кнопоки постройки:
-document.querySelector('#town-hall__menu-button').onclick = function () {
-    system.build_it = "town_hall"
-}
-document.querySelector('#farm__menu-button').onclick = function () {
-    system.build_it = "farm"
-}
-document.querySelector('#sawmill__menu-button').onclick = function () {
-    system.build_it = "sawmill"
-}
-document.querySelector('#mine__menu-button').onclick = function () {
-    system.build_it = "mine"
-}
-document.querySelector('#house__menu-button').onclick = function () {
-    system.build_it = "house"
 }
 
 //кнопка хода
@@ -192,6 +172,22 @@ document.querySelector('#turn__menu-button').onclick = function () {
 
 //подключение зданий
 import {townHall} from "./bilding/bildings.js"
+
+townHall.bildBtn()
+
+// обработка нажатия на кнопоки постройки:
+document.querySelector('#farm__menu-button').onclick = function () {
+    system.build_it = "farm"
+}
+document.querySelector('#sawmill__menu-button').onclick = function () {
+    system.build_it = "sawmill"
+}
+document.querySelector('#mine__menu-button').onclick = function () {
+    system.build_it = "mine"
+}
+document.querySelector('#house__menu-button').onclick = function () {
+    system.build_it = "house"
+}
 
 // выполнение функции строительства:
 for (let i = String(1); i <= system.cell_lend; i++) {
