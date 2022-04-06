@@ -17,7 +17,7 @@ export const resource = {
     farm_production: 0,
     food: 100,
     farm_profit: 0,
-    food_use: 2,
+    food_use: 0,
 
     //дерево
     sawmill: 0,

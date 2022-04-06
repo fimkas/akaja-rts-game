@@ -205,6 +205,7 @@ header a{
     border-radius: 6px;
     border: none;
     padding: 15px 30px;
+    margin-right: 5px;
     transition: 0.2s;
 }
 .build_menu-btn:hover{

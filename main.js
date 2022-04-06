@@ -5,18 +5,17 @@ VERSION: 0.1 BETA
 export const system = { //константы на которих живет все приложение, ИЗМЕНЕНИЯ НЕ ВНОСИТЬ!!. нормальное название не завезли
     //важные параметры:
     debag: false,
-    build_it: "",
+    build_it: "a",
 
     //параметры игрового поля:
     cell_lend: 2000,
     hills: 9,
     gold_ore: 5,
-
-    town_hall: 0,
 }
 
 //импорт класса всех ресурсов
 import {resource} from "./resurse/resourse.js"
+
 
 //перемещение
 document.addEventListener('keydown', (event) => {
@@ -171,17 +170,13 @@ document.querySelector('#turn__menu-button').onclick = function () {
 }
 
 //подключение зданий
-import {townHall} from "./bilding/bildings.js"
+import {townHall, farm, sawmill} from "./bilding/bildings.js"
 
 townHall.bildBtn()
+farm.bildBtn()
+sawmill.bildBtn()
 
 // обработка нажатия на кнопоки постройки:
-document.querySelector('#farm__menu-button').onclick = function () {
-    system.build_it = "farm"
-}
-document.querySelector('#sawmill__menu-button').onclick = function () {
-    system.build_it = "sawmill"
-}
 document.querySelector('#mine__menu-button').onclick = function () {
     system.build_it = "mine"
 }
@@ -193,37 +188,13 @@ document.querySelector('#house__menu-button').onclick = function () {
 for (let i = String(1); i <= system.cell_lend; i++) {
     document.getElementById(i).onclick = function (){
 
-        if (system.build_it === townHall.Bname && document.getElementById(i).className === "cell" && system.town_hall !== 1) {
-            document.getElementById(i).classList.add(townHall.Bclass);
-            document.querySelector('#town-hall__menu-button').style.display = 'none'
-            system.town_hall = 1
-            resource.tax += townHall.ProfitTax
-            resource.people_limit += townHall.ProfitPeopleLimit
+        townHall.bildFunc(i)
+        farm.bildFunc(i)
+        sawmill.bildFunc(i)
 
-            resource_update()
-            system.build_it = ""
-        }
-
-        if (system.build_it === "farm" && document.getElementById(i).className === "cell" && system.town_hall !== 0) {
-            document.getElementById(i).classList.add('farm');
-            resource.farm++
-
-            resource.wood -= 5
-            resource.stone -= 5
-
-            resource_update()
-            system.build_it = ""
-        }
-
-        if (system.build_it === "sawmill" && document.getElementById(i).className === "cell" && system.town_hall !== 0) {
-            resource.sawmill++
-            resource.food_use++
-
-            resource_update()
-            system.build_it = ""
-        }
 
         if (system.build_it === "mine" && document.getElementById(i).className === "cell gold_ore" && system.town_hall !== 0) {
+            document.getElementById(i).classList.add('minegold')
             resource.gold_mine++
             resource.food_use++
 
