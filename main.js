@@ -170,19 +170,14 @@ document.querySelector('#turn__menu-button').onclick = function () {
 }
 
 //подключение зданий
-import {townHall, farm, sawmill} from "./bilding/bildings.js"
+import {townHall, farm, sawmill, house, mineGold, mineStone} from "./bilding/bildings.js"
 
 townHall.bildBtn()
 farm.bildBtn()
 sawmill.bildBtn()
-
-// обработка нажатия на кнопоки постройки:
-document.querySelector('#mine__menu-button').onclick = function () {
-    system.build_it = "mine"
-}
-document.querySelector('#house__menu-button').onclick = function () {
-    system.build_it = "house"
-}
+house.bildBtn()
+mineGold.bildBtn()
+mineStone.bildBtn()
 
 // выполнение функции строительства:
 for (let i = String(1); i <= system.cell_lend; i++) {
@@ -191,48 +186,10 @@ for (let i = String(1); i <= system.cell_lend; i++) {
         townHall.bildFunc(i)
         farm.bildFunc(i)
         sawmill.bildFunc(i)
+        house.bildFunc(i)
+        mineGold.bildFunc(i)
+        mineStone.bildFunc(i)
 
-
-        if (system.build_it === "mine" && document.getElementById(i).className === "cell gold_ore" && system.town_hall !== 0) {
-            document.getElementById(i).classList.add('minegold')
-            resource.gold_mine++
-            resource.food_use++
-
-            resource_update()
-            system.build_it = ""
-        }
-
-        if (system.build_it === "mine" &&
-            document.getElementById(i).className === "cell hills0 hills" ||
-            document.getElementById(i).className === "cell hills1 hills" ||
-            document.getElementById(i).className === "cell hills2 hills" &&
-            system.town_hall !== 0) {
-
-            resource.stone_mine++
-            resource.food_use++
-
-            if (document.getElementById(i).className === "cell hills0 hills"){
-                document.getElementById(i).classList.add('mine0')
-            }
-            if (document.getElementById(i).className === "cell hills1 hills"){
-                document.getElementById(i).classList.add('mine1')
-            }
-            if (document.getElementById(i).className === "cell hills2 hills"){
-                document.getElementById(i).classList.add('mine2')
-            }
-
-            resource_update()
-            system.build_it = ""
-        }
-
-        if (system.build_it === "house" && document.getElementById(i).className === "cell" && system.town_hall !== 0){
-            resource.tax++
-            resource.food_use++
-            resource.people_limit += 10
-
-            resource_update()
-            system.build_it = ""
-        }
 
     }
 }
