@@ -50,6 +50,7 @@ class Bilds{
             && document.getElementById(i).classList.contains(this.Bname) === false) {
             //добавление класса к елементу
             document.getElementById(i).classList.add(this.Bname);
+
             //ресурсы за ход
             resource.tax += this.ProfitTax
             resource.sawmill += this.ProfitWood
@@ -58,8 +59,14 @@ class Bilds{
             resource.farm += this.ProfitFood
             resource.people_limit += this.ProfitPeopleLimit
             //использование ресурсов за ход
-
+            resource.food_use += this.T_useFood
+            resource.gold_use += this.T_useGold
+            resource.wood_use += this.T_useWood
+            resource.stone_use += this.T_useStone
             //использование ресурсов для строительства
+            resource.wood -= this.B_useWood
+            resource.stone -= this.B_useStone
+            resource.gold -= this.B_useGold
 
             //дополнительно
             if (document.getElementById(i).classList.contains("hills0") === true){

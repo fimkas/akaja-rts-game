@@ -4,7 +4,7 @@ VERSION: 0.1 BETA
 
 export const system = { //константы на которих живет все приложение, ИЗМЕНЕНИЯ НЕ ВНОСИТЬ!!. нормальное название не завезли
     //важные параметры:
-    debag: false,
+    deBag: false,
     build_it: "a",
 
     //параметры игрового поля:
@@ -158,8 +158,8 @@ document.querySelector('#turn__menu-button').onclick = function () {
         resource_update()
 
         // дебаг:
-        if (system.debag === true){
-            console.log("build_it: " + resource.build_it)
+        if (system.deBag === true){
+            console.log("build_it: " + system.build_it)
             console.log("gold mine: " + resource.gold_mine)
             console.log("farm: " + resource.farm)
             console.log("sawmill: " + resource.sawmill)
@@ -182,6 +182,7 @@ mineStone.bildBtn()
 // выполнение функции строительства:
 for (let i = String(1); i <= system.cell_lend; i++) {
     document.getElementById(i).onclick = function (){
+        resource_update()
 
         townHall.bildFunc(i)
         farm.bildFunc(i)
