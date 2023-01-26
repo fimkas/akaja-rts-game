@@ -1,18 +1,18 @@
 import {system} from "../main.js"
 import {resource} from  "../resurse/resourse.js"
 
-class Bilds{
+class Builds{
     constructor(
-        Bname, Bclass, BTNckass, BTNname,
+        BName, BClass, ButtonClass, ButtonName,
         ProfitTax, ProfitWood, ProfitStone,  ProfitGold, ProfitFood, ProfitPeopleLimit,
         B_useWood, B_useStone, B_useGold,
         T_useWood, T_useStone, T_useGold, T_useFood) {
 
         //имя, класс
-        this.Bname = Bname
-        this.Bclass = Bclass
-        this.BTNckass = BTNckass
-        this.BTNname = BTNname
+        this.Bname = BName
+        this.Bclass = BClass
+        this.BTNckass = ButtonClass
+        this.BTNname = ButtonName
         //прибиль
         this.ProfitTax = ProfitTax
         this.ProfitWood = ProfitWood
@@ -91,38 +91,38 @@ class Bilds{
 //     B_useWood, B_useStone, B_useGold,
 //     T_useWood, T_useStone, T_useGold, T_useFood
 
-export let townHall = new Bilds(
+export let townHall = new Builds(
     "town_hall", "cell", "build_menu-btn", "town hall",
     1, 0, 0, 0, 0, 10,
     3, 3, 0,
     0, 0, 0, 2)
 
-export let farm = new Bilds (
+export let farm = new Builds (
     "farm", "cell", "build_menu-btn", "farm",
     0, 0, 0, 0, 1, 0,
-    3, 3, 0,
-    0, 0, 0, 2)
+    3, 3, 1,
+    0, 0, 0, 0)
 
-export let sawmill = new Bilds(
+export let sawmill = new Builds(
     "sawmill", "cell", "build_menu-btn", "sawmill",
     0, 1, 0, 0, 0, 0,
     3, 3, 0,
-    0, 0, 0, 2)
+    0, 0, 0, 1)
 
-export let house = new Bilds(
+export let house = new Builds(
     "house", "cell", "build_menu-btn", "house",
     1, 0, 0, 0, 0, 10,
     3, 3, 0,
     0, 0, 0, 2)
 
-export let mineGold = new Bilds(
+export let mineGold = new Builds(
     "mineGold", "gold_ore", "build_menu-btn", "mine gold",
     0, 0, 0, 1, 0, 0,
     3, 3, 0,
-    0, 0, 0, 2)
+    0, 0, 0, 1)
 
-export let mineStone = new Bilds(
+export let mineStone = new Builds(
     "mineStone", "hills", "build_menu-btn", "mine stone",
     0, 0, 1, 0, 0, 0,
     3, 3, 0,
-    0, 0, 0, 2)
+    0, 0, 0, 1)
